@@ -78,8 +78,8 @@ python space_debris_su.py \
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `--x_init` | int | None | Initial x coordinate of debris (300-2800) |
-| `--y_init` | int | None | Initial y coordinate of debris (300-2800) |
+| `--x_init` | int | None | Initial x coordinate of debris (300-2800, depends on image size) |
+| `--y_init` | int | None | Initial y coordinate of debris (300-2800, depends on image size) |
 
 ### Debris Geometry Parameters
 
@@ -228,7 +228,7 @@ python example_usage.py 2  # Run example 2
 ## Parameter Range Description
 
 ### Coordinate Range
-- x_init, y_init: 300-2800 (avoid boundary effects)
+- x_init, y_init: 300-2800 (depends on input image size, avoid boundary effects)
 
 ### Geometry Parameters
 - angle: 0-360 degrees
@@ -248,8 +248,8 @@ python example_usage.py 2  # Run example 2
 
 ## Important Notes
 
-1. **Coordinate Range**: Initial debris coordinates should be within 300-2800 range to avoid boundary effects
-2. **Image Size**: Output image size is 3072x3072 pixels
+1. **Coordinate Range**: Initial debris coordinates should be within 300-2800 range to avoid boundary effects. This range depends on the input image size (default: 3072x3072 pixels)
+2. **Image Size**: Output image size is 3072x3072 pixels (resized from input FITS file)
 3. **File Format**: Input supports FITS format, output is PNG format
 4. **Memory Usage**: Pay attention to memory usage when generating large numbers of images
 5. **Randomness**: Unspecified parameters will use random values
@@ -273,7 +273,7 @@ python space_debris_su.py --help
 
 ### Algorithm Principle
 
-1. **Background Image Processing**: Read FITS file, perform size adjustment and normalization
+1. **Background Image Processing**: Read FITS file, resize to 3072x3072 pixels, and perform normalization
 2. **Debris Generation**: Use Gaussian function to generate debris shape
 3. **Motion Simulation**: Calculate debris motion trajectory based on velocity and angle
 4. **Noise Addition**: Add random noise to images and debris
