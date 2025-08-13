@@ -36,6 +36,3 @@ When our network implementation is published, please cite our work:
 
 For questions about the upcoming network implementation or collaboration opportunities, please reach out to us.
 
----
-
-**Note**: This is a placeholder README for the upcoming network implementation. The current repository contains the simulation framework, which will be enhanced and integrated with the detection network.
